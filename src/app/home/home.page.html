@@ -8,16 +8,37 @@
 </ion-header>
  
 <ion-content [fullscreen]="true" class="ion-padding">
- 
-    <input type="textArea" class="search-input" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
- 
+  <ion-row>
+    <ion-col>
+      <ion-icon name="search-outline" size="large"></ion-icon>
+    </ion-col>
+    <ion-col text-center>
+      <input type="textArea" class="search-input" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
+    </ion-col>
+    <ion-col>
+      <ion-button (click)="openViewer()" expand="full"shape="round" fill="outline">Start
+        <ion-icon name="Start" (click)="openViewer()"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+ <p>Drag the Marker to Where You Want to go</p>  
+ <div>
     <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
       <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
         (dragEnd)="markerDragEnd($event)"></agm-marker>
     </agm-map>
- 
+  </div>
   <h5>Address: {{address}}</h5>
   <div>Latitude: {{latitude}}</div>
   <div>Longitude: {{longitude}}</div>
- 
+  <ion-row>
+    <ion-col></ion-col>
+    <ion-col>
+      <ion-button (click)="loadMap()" shape="round" fill="outline">
+        <ion-icon slot="start" name="locate"></ion-icon>
+        Where I Am
+      </ion-button>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
 </ion-content>

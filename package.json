@@ -27,6 +27,7 @@
     "angular": "^1.7.9",
     "core-js": "^2.5.4",
     "ionic": "^5.4.16",
+    "ngx-ionic-image-viewer": "^0.7.0",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
